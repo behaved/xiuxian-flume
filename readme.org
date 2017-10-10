@@ -2,4 +2,4 @@
 #+date:2017-10-10
 #+author:yongliang.jia
 
-.Netƽ̨�½��Flume����־ϵͳ
+.Net平台下Flume做日志系统实践

@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Linq;
+using Autofac;
+using Autofac.Core.Lifetime;
+using System.Web;
+using Autofac.Integration.Mvc;
 
 namespace XiuXianFlume.Core.Infrastructure.DependencyManagement
 {
@@ -123,17 +127,17 @@ namespace XiuXianFlume.Core.Infrastructure.DependencyManagement
                     foreach (var parameter in parameters)
                     {
                         var service = Resolve(parameter.ParameterType, scope);
-                        if (service == null) throw new NopException("Unknown dependency");
+                        if (service == null) throw new XiuXianException("Unknown dependency");
                         parameterInstances.Add(service);
                     }
                     return Activator.CreateInstance(type, parameterInstances.ToArray());
                 }
-                catch (NopException)
+                catch (XiuXianException)
                 {
 
                 }
             }
-            throw new NopException("No constructor  was found that had all the dependencies satisfied.");
+            throw new XiuXianException("No constructor  was found that had all the dependencies satisfied.");
         }
         
         /// <summary>

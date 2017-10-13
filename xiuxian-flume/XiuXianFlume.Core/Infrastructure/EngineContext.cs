@@ -12,7 +12,7 @@ namespace XiuXianFlume.Core.Infrastructure
         #region Methods
 
         /// <summary>
-        /// Initializes a static instance of the Nop factory.
+        /// Initializes a static instance of the XiuXian factory.
         /// </summary>
         /// <param name="forceRecreate">Creates a new factory instance even though the factory has been previously initialized.</param>
         [MethodImpl(MethodImplOptions.Synchronized)]
@@ -20,9 +20,9 @@ namespace XiuXianFlume.Core.Infrastructure
         {
             if (Singleton<IEngine>.Instance == null || forceRecreate)
             {
-                Singleton<IEngine>.Instance = new NopEngine();
+                Singleton<IEngine>.Instance = new XiuXianEngine();
 
-                var config = ConfigurationManager.GetSection("NopConfig") as NopConfig;
+                var config = ConfigurationManager.GetSection("XiuXianConfig") as XiuXianConfig;
                 Singleton<IEngine>.Instance.Initialize(config);
             }
             return Singleton<IEngine>.Instance;

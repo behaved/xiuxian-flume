@@ -1,4 +1,5 @@
 ﻿using System;
+using AutoMapper;
 
 namespace XiuXianFlume.Core.Infrastructure.Mapper
 {

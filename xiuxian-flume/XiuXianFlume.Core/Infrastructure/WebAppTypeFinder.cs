@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Web;
+using System.Web.Hosting;
 
 namespace XiuXianFlume.Core.Infrastructure
 {

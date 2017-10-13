@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
+using Autofac;
+using Autofac.Integration.Mvc;
+using AutoMapper;
 using XiuXianFlume.Core.Configuration;
 using XiuXianFlume.Core.Infrastructure.DependencyManagement;
 using XiuXianFlume.Core.Infrastructure.Mapper;
@@ -10,7 +14,7 @@ namespace XiuXianFlume.Core.Infrastructure
     /// <summary>
     /// Engine
     /// </summary>
-    public class NopEngine : IEngine
+    public class XiuXianEngine : IEngine
     {
         #region Fields
 
@@ -40,13 +44,13 @@ namespace XiuXianFlume.Core.Infrastructure
         /// Register dependencies
         /// </summary>
         /// <param name="config">Config</param>
-        protected virtual void RegisterDependencies(NopConfig config)
+        protected virtual void RegisterDependencies(XiuXianConfig config)
         {
             var builder = new ContainerBuilder();
             
             //dependencies
             var typeFinder = new WebAppTypeFinder();
-            builder.RegisterInstance(config).As<NopConfig>().SingleInstance();
+            builder.RegisterInstance(config).As<XiuXianConfig>().SingleInstance();
             builder.RegisterInstance(this).As<IEngine>().SingleInstance();
             builder.RegisterInstance(typeFinder).As<ITypeFinder>().SingleInstance();
 
@@ -71,7 +75,7 @@ namespace XiuXianFlume.Core.Infrastructure
         /// Register mapping
         /// </summary>
         /// <param name="config">Config</param>
-        protected virtual void RegisterMapperConfiguration(NopConfig config)
+        protected virtual void RegisterMapperConfiguration(XiuXianConfig config)
         {
             //dependencies
             var typeFinder = new WebAppTypeFinder();
@@ -99,7 +103,7 @@ namespace XiuXianFlume.Core.Infrastructure
         /// Initialize components and plugins in the nop environment.
         /// </summary>
         /// <param name="config">Config</param>
-        public void Initialize(NopConfig config)
+        public void Initialize(XiuXianConfig config)
         {
             //register dependencies
             RegisterDependencies(config);

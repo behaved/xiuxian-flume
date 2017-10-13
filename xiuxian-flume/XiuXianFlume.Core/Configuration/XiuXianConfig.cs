@@ -7,7 +7,7 @@ namespace XiuXianFlume.Core.Configuration
     /// <summary>
     /// Represents a NopConfig
     /// </summary>
-    public partial class NopConfig : IConfigurationSectionHandler
+    public partial class XiuXianConfig : IConfigurationSectionHandler
     {
         /// <summary>
         /// Creates a configuration section handler.
@@ -18,7 +18,7 @@ namespace XiuXianFlume.Core.Configuration
         /// <returns>The created section handler object.</returns>
         public object Create(object parent, object configContext, XmlNode section)
         {
-            var config = new NopConfig();
+            var config = new XiuXianConfig();
 
             var startupNode = section.SelectSingleNode("Startup");
             config.IgnoreStartupTasks = GetBool(startupNode, "IgnoreStartupTasks");

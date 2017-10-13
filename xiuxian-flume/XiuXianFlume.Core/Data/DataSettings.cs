@@ -32,7 +32,7 @@ namespace XiuXianFlume.Core.Data
         /// A value indicating whether entered information is valid
         /// </summary>
         /// <returns></returns>
-        public bool IsVaild()
+        public bool IsValid()
         {
             return !string.IsNullOrEmpty(DataProvider) && !string.IsNullOrEmpty(DataConnectionString);
         }

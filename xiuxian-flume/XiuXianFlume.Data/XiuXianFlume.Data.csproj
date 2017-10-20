@@ -56,6 +56,7 @@
     <Compile Include="EfRepository.cs" />
     <Compile Include="EfStartUpTask.cs" />
     <Compile Include="IDbContext.cs" />
+    <Compile Include="InitData.cs" />
     <Compile Include="Mapping\UserMap.cs" />
     <Compile Include="Mapping\XiuXianEntityTypeConfiguration.cs" />
     <Compile Include="MysqlDataProvider.cs" />

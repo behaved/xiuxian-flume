@@ -1,23 +1,36 @@
 ﻿using System.Data.Common;
+using System.Data.Entity;
+using MySql.Data.Entity;
 using XiuXianFlume.Core.Data;
 
 namespace XiuXianFlume.Data
 {
     public class MysqlDataProvider : IDataProvider
     {
+        public MysqlDataProvider()
+        {
+            StoredProceduredSupported = false;
+            BackupSupported = false;
+        }
+
         public void InitConnectionFactory()
         {
-            throw new System.NotImplementedException();
+            var connectionFactory = new MySqlConnectionFactory();
+            #pragma warning disable 618
+            Database.DefaultConnectionFactory = connectionFactory;            
+            #pragma warning restore 618
         }
 
         public void SetDatabaseInitializer()
         {
-            throw new System.NotImplementedException();
+            
+            Database.SetInitializer(new InitData());
         }
 
         public void InitDatabase()
         {
-            throw new System.NotImplementedException();
+            InitConnectionFactory();
+            SetDatabaseInitializer();
         }
 
         public bool StoredProceduredSupported { get; }

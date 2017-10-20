@@ -11,7 +11,7 @@ namespace XiuXianFlume.Core.Data
     {
         protected const char separator = ':';
         protected const string filename = "Settings.txt";
-               
+
         /// <summary>
         /// Parse settings
         /// </summary>
@@ -52,7 +52,7 @@ namespace XiuXianFlume.Core.Data
                         shellSettings.DataConnectionString = value;
                         break;
                     default:
-                        shellSettings.RawDataSettings.Add(key,value);
+                        shellSettings.RawDataSettings.Add(key, value);
                         break;
                 }
             }
@@ -71,10 +71,10 @@ namespace XiuXianFlume.Core.Data
                 return "";
 
             return string.Format("DataProvider: {0}{2}DataConnectionString: {1}{2}",
-                                 settings.DataProvider,
-                                 settings.DataConnectionString,
-                                 Environment.NewLine
-                );
+                settings.DataProvider,
+                settings.DataConnectionString,
+                Environment.NewLine
+            );
         }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace XiuXianFlume.Core.Data
                 string text = File.ReadAllText(filePath);
                 return ParseSettings(text);
             }
-            
+
             return new DataSettings();
         }
 
@@ -105,7 +105,7 @@ namespace XiuXianFlume.Core.Data
         {
             if (settings == null)
                 throw new ArgumentNullException("settings");
-            
+
             string filePath = Path.Combine(CommonHelper.MapPath("~/App_Data/"), filename);
             if (!File.Exists(filePath))
             {
@@ -114,8 +114,9 @@ namespace XiuXianFlume.Core.Data
                     //we use 'using' to close the file after it's created
                 }
             }
-            
+
             var text = ComposeSettings(settings);
             File.WriteAllText(filePath, text);
         }
+    }
 }

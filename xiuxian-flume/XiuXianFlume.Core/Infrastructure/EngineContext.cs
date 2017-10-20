@@ -5,7 +5,7 @@ using XiuXianFlume.Core.Configuration;
 namespace XiuXianFlume.Core.Infrastructure
 {
     /// <summary>
-    /// Provides access to the singleton instance of the Nop engine.
+    /// Provides access to the singleton instance of the XIuXian engine.
     /// </summary>
     public class EngineContext
     {

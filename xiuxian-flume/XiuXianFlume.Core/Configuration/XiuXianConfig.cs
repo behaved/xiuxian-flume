@@ -23,11 +23,6 @@ namespace XiuXianFlume.Core.Configuration
             var startupNode = section.SelectSingleNode("Startup");
             config.IgnoreStartupTasks = GetBool(startupNode, "IgnoreStartupTasks");
 
-
-            var userAgentStringsNode = section.SelectSingleNode("UserAgentStrings");
-            config.UserAgentStringsPath = GetString(userAgentStringsNode, "databasePath");
-            config.CrawlerOnlyUserAgentStringsPath = GetString(userAgentStringsNode, "crawlersOnlyDatabasePath");
-
             return config;
         }
 
@@ -54,15 +49,5 @@ namespace XiuXianFlume.Core.Configuration
         /// Indicates whether we should ignore startup tasks
         /// </summary>
         public bool IgnoreStartupTasks { get; private set; }
-
-        /// <summary>
-        /// Path to database with user agent strings
-        /// </summary>
-        public string UserAgentStringsPath { get; private set; }
-
-        /// <summary>
-        /// Path to database with crawler only user agent strings
-        /// </summary>
-        public string CrawlerOnlyUserAgentStringsPath { get; private set; }
     }
 }
